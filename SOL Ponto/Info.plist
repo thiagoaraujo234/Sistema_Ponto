@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Alura Ponto necessita de acesso a Câmera para regristrar o ponto eletrônico</string>
+	<string>SOL Ponto necessita de acesso a Câmera para regristrar o ponto eletrônico</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>SOL Ponto necessita de acesso da Biblioteca de Imagens</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
