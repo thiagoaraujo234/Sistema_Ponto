@@ -1,2 +1,2 @@
 # SOL_Ponto
-App SOL Ponto - Um aplicativo que marca a batida de ponto dos colaboradores de um empresa.
+App SOL Ponto - Um aplicativo que marca a batida de ponto dos colaboradores de uma pequena empresa.
