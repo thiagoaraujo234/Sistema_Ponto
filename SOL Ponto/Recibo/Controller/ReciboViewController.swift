@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ReciboViewController: UIViewController {
     
@@ -13,6 +14,16 @@ class ReciboViewController: UIViewController {
     
     private lazy var camera = Camera()
     private lazy var controladorDeImage =  UIImagePickerController()
+    
+    
+    let buscador: NSFetchedResultsController<Recibo> = {
+        let fetcheRequest: NSFetchRequest<Recibo> =  Recibo.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
+        fetcheRequest.sortDescriptors = [sortDescriptor]
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return NSFetchedResultsController(fetchRequest: fetcheRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+    }()
     
     @IBOutlet weak var escolhaFotoView: UIView!
     @IBOutlet weak var reciboTableView: UITableView!
@@ -28,13 +39,20 @@ class ReciboViewController: UIViewController {
         super.viewDidLoad()
         configuraTableView()
         configuraViewFoto()
+        buscador.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        getRecibos()
         reciboTableView.reloadData()
     }
     
     // MARK: - Class methods
+    
+    func getRecibos() {
+        Recibo.carregar(buscador)
+    }
+    
     
     func configuraViewFoto() {
         escolhaFotoView.layer.borderWidth = 1
@@ -108,4 +126,8 @@ extension ReciboViewController: CameraDelegate {
         escolhaFotoButton.isHidden =  true
         fotoPerfilImageView.image = image
     }
+}
+
+extension ReciboViewController: NSFetchedResultsControllerDelegate {
+    
 }
