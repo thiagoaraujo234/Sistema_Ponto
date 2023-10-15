@@ -88,8 +88,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController: CameraDelegate {
     func didSelecFoto(_ image: UIImage) {
         let recibo = Recibo (status: false, data: Date(), foto: image)
-        Secao.shared.addRecibos(recibo)
-        
-        recibo.save(contexto)
+        recibo.salvar(contexto)
     }
 }

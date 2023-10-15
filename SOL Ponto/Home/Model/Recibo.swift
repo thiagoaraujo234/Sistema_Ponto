@@ -35,7 +35,7 @@ extension Recibo {
       return  NSFetchRequest(entityName: "Recibo")
     }
     
-    func save(_ contexto: NSManagedObjectContext) {
+    func salvar(_ contexto: NSManagedObjectContext) {
         do {
             try contexto.save()
         }catch {
@@ -47,6 +47,16 @@ extension Recibo {
         do {
             try fetchedResultController.performFetch()
         }catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deletar (_ contexto: NSManagedObjectContext) {
+        contexto.delete(self)
+        
+        do {
+            try contexto.save()
+        } catch {
             print(error.localizedDescription)
         }
     }
