@@ -2,7 +2,7 @@
 //  ReciboViewController.swift
 //  SOL Ponto
 //
-//  Created by Sósthenes Oliveira liMA on 13/10/23.
+//  Created by Sósthenes Oliveira Lima on 02/10/23.
 //
 
 import UIKit
@@ -125,7 +125,7 @@ extension ReciboViewController: ReciboTableViewCellDelegate {
         guard let recibo = buscador.fetchedObjects?[index] else { return }
         recibo.deletar(contexto)
         //recibo.status = true (para atualizar)
-        //recibo.salvar(contexto) 
+        //recibo.salvar(contexto)
         
     }
 }

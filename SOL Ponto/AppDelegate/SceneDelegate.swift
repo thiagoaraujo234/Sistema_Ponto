@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  SOL Ponto
 //
-//  Created by Sósthenes Oliveira Lima on 13/10/23.
+//  Created by Sósthenes Oliveira Lima on 02/10/23.
 //
 
 import UIKit
